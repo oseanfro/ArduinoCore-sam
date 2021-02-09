@@ -1,20 +1,20 @@
 /*
-  Copyright (c) 2011 Arduino.  All right reserved.
+   Copyright (c) 2011 Arduino.  All right reserved.
 
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
 
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  See the GNU Lesser General Public License for more details.
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+   See the GNU Lesser General Public License for more details.
 
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
+   You should have received a copy of the GNU Lesser General Public
+   License along with this library; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
 
 #ifndef _VARIANT_ARDUINO_DUE_X_
 #define _VARIANT_ARDUINO_DUE_X_
@@ -24,10 +24,10 @@
  *----------------------------------------------------------------------------*/
 
 /** Frequency of the board main oscillator */
-#define VARIANT_MAINOSC		12000000
+#define VARIANT_MAINOSC  12000000
 
 /** Master clock frequency */
-#define VARIANT_MCK			84000000
+#define VARIANT_MCK   84000000
 
 /*----------------------------------------------------------------------------
  *        Headers
@@ -37,10 +37,11 @@
 #ifdef __cplusplus
 #include "UARTClass.h"
 #include "USARTClass.h"
+#include "DmaSerial.h"
 #endif
 
 #ifdef __cplusplus
-extern "C"{
+extern "C" {
 #endif // __cplusplus
 
 /**
@@ -119,13 +120,13 @@ extern "C"{
 #define BOARD_SPI_DEFAULT_SS BOARD_SPI_SS3
 
 #define BOARD_PIN_TO_SPI_PIN(x) \
-	(x==BOARD_SPI_SS0 ? PIN_SPI_SS0 : \
-	(x==BOARD_SPI_SS1 ? PIN_SPI_SS1 : \
-	(x==BOARD_SPI_SS2 ? PIN_SPI_SS2 : PIN_SPI_SS3 )))
+								(x==BOARD_SPI_SS0 ? PIN_SPI_SS0 : \
+									(x==BOARD_SPI_SS1 ? PIN_SPI_SS1 : \
+										(x==BOARD_SPI_SS2 ? PIN_SPI_SS2 : PIN_SPI_SS3 )))
 #define BOARD_PIN_TO_SPI_CHANNEL(x) \
-	(x==BOARD_SPI_SS0 ? 0 : \
-	(x==BOARD_SPI_SS1 ? 1 : \
-	(x==BOARD_SPI_SS2 ? 2 : 3)))
+								(x==BOARD_SPI_SS0 ? 0 : \
+									(x==BOARD_SPI_SS1 ? 1 : \
+										(x==BOARD_SPI_SS2 ? 2 : 3)))
 
 static const uint8_t SS   = BOARD_SPI_SS0;
 static const uint8_t SS1  = BOARD_SPI_SS1;
@@ -166,6 +167,8 @@ static const uint8_t SCL1 = PIN_WIRE1_SCL;
 #define PINS_UART            (81u)
 // Serial1
 #define PINS_USART0          (82u)
+#define PIN_RTS0            (2u)
+#define PIN_CTS0            (22u)
 // Serial2
 #define PINS_USART1          (83u)
 // Serial3
@@ -195,7 +198,7 @@ static const uint8_t DAC0 = 66;
 static const uint8_t DAC1 = 67;
 static const uint8_t CANRX = 68;
 static const uint8_t CANTX = 69;
-#define ADC_RESOLUTION		12
+#define ADC_RESOLUTION  12
 
 /*
  * Complementary CAN pins
@@ -212,21 +215,21 @@ static const uint8_t CAN1TX = 89;
 /*
  * DACC
  */
-#define DACC_INTERFACE		DACC
-#define DACC_INTERFACE_ID	ID_DACC
-#define DACC_RESOLUTION		12
+#define DACC_INTERFACE  DACC
+#define DACC_INTERFACE_ID ID_DACC
+#define DACC_RESOLUTION  12
 #define DACC_ISR_HANDLER    DACC_Handler
 #define DACC_ISR_ID         DACC_IRQn
 
 /*
  * PWM
  */
-#define PWM_INTERFACE		PWM
-#define PWM_INTERFACE_ID	ID_PWM
-#define PWM_FREQUENCY		1000
-#define PWM_MAX_DUTY_CYCLE	255
-#define PWM_MIN_DUTY_CYCLE	0
-#define PWM_RESOLUTION		8
+#define PWM_INTERFACE  PWM
+#define PWM_INTERFACE_ID ID_PWM
+#define PWM_FREQUENCY  1000
+#define PWM_MAX_DUTY_CYCLE 255
+#define PWM_MIN_DUTY_CYCLE 0
+#define PWM_RESOLUTION  8
 
 /*
  * TC
@@ -236,7 +239,7 @@ static const uint8_t CAN1TX = 89;
 #define TC_FREQUENCY        1000
 #define TC_MAX_DUTY_CYCLE   255
 #define TC_MIN_DUTY_CYCLE   0
-#define TC_RESOLUTION		8
+#define TC_RESOLUTION  8
 
 #ifdef __cplusplus
 }
@@ -250,6 +253,7 @@ static const uint8_t CAN1TX = 89;
 
 extern UARTClass Serial;
 extern USARTClass Serial1;
+//extern DmaSerial Serial1;
 extern USARTClass Serial2;
 extern USARTClass Serial3;
 
@@ -281,4 +285,3 @@ extern USARTClass Serial3;
 #define SERIAL_PORT_HARDWARE3       Serial3
 
 #endif /* _VARIANT_ARDUINO_DUE_X_ */
-

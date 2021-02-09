@@ -1,0 +1,6 @@
+{
+    "name": "framework-arduino-sam",
+    "description": "Arduino Wiring-based Framework (SAM Core)",
+    "url": "https://github.com/arduino/ArduinoCore-sam",
+    "version": "1.6.12"
+}

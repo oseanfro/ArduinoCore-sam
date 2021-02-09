@@ -18,10 +18,6 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wreorder"
-#pragma GCC diagnostic ignored "-Wunused-parameter"
-
 extern "C" {
 #include <string.h>
 }
@@ -449,5 +445,3 @@ void WIRE1_ISR_HANDLER(void) {
 	Wire1.onService();
 }
 #endif
-
-#pragma GCC diagnostic pop

@@ -1,20 +1,20 @@
 /*
- WCharacter.h - Character utility functions for Wiring & Arduino
- Copyright (c) 2010 Hernando Barragan.  All right reserved.
+   WCharacter.h - Character utility functions for Wiring & Arduino
+   Copyright (c) 2010 Hernando Barragan.  All right reserved.
 
- This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Lesser General Public
- License as published by the Free Software Foundation; either
- version 2.1 of the License, or (at your option) any later version.
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
 
- This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Lesser General Public License for more details.
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
 
- You should have received a copy of the GNU Lesser General Public
- License along with this library; if not, write to the Free Software
- Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+   You should have received a copy of the GNU Lesser General Public
+   License along with this library; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
 #ifndef Character_h
@@ -43,7 +43,7 @@ inline boolean isUpperCase(int c) __attribute__((always_inline));
 inline boolean isHexadecimalDigit(int c) __attribute__((always_inline));
 inline int toAscii(int c) __attribute__((always_inline));
 inline int toLowerCase(int c) __attribute__((always_inline));
-inline int toUpperCase(int c)__attribute__((always_inline));
+inline int toUpperCase(int c) __attribute__((always_inline));
 #elif defined ( __ICCARM__ )
 #endif
 
@@ -51,7 +51,7 @@ inline int toUpperCase(int c)__attribute__((always_inline));
 // It is equivalent to (isalpha(c) || isdigit(c)).
 inline boolean isAlphaNumeric(int c)
 {
-  return ( isalnum(c) == 0 ? false : true);
+        return ( isalnum(c) == 0 ? false : true);
 }
 
 
@@ -59,7 +59,7 @@ inline boolean isAlphaNumeric(int c)
 // It is equivalent to (isupper(c) || islower(c)).
 inline boolean isAlpha(int c)
 {
-  return ( isalpha(c) == 0 ? false : true);
+        return ( isalpha(c) == 0 ? false : true);
 }
 
 
@@ -68,49 +68,49 @@ inline boolean isAlpha(int c)
 inline boolean isAscii(int c)
 {
 /*  return ( isascii(c) == 0 ? false : true); */
-  return ( (c & ~0x7f) != 0 ? false : true);
+        return ( (c & ~0x7f) != 0 ? false : true);
 }
 
 
 // Checks for a blank character, that is, a space or a tab.
 inline boolean isWhitespace(int c)
 {
-  return ( isblank (c) == 0 ? false : true);
+        return ( isblank (c) == 0 ? false : true);
 }
 
 
 // Checks for a control character.
 inline boolean isControl(int c)
 {
-  return ( iscntrl (c) == 0 ? false : true);
+        return ( iscntrl (c) == 0 ? false : true);
 }
 
 
 // Checks for a digit (0 through 9).
 inline boolean isDigit(int c)
 {
-  return ( isdigit (c) == 0 ? false : true);
+        return ( isdigit (c) == 0 ? false : true);
 }
 
 
 // Checks for any printable character except space.
 inline boolean isGraph(int c)
 {
-  return ( isgraph (c) == 0 ? false : true);
+        return ( isgraph (c) == 0 ? false : true);
 }
 
 
 // Checks for a lower-case character.
 inline boolean isLowerCase(int c)
 {
-  return (islower (c) == 0 ? false : true);
+        return (islower (c) == 0 ? false : true);
 }
 
 
 // Checks for any printable character including space.
 inline boolean isPrintable(int c)
 {
-  return ( isprint (c) == 0 ? false : true);
+        return ( isprint (c) == 0 ? false : true);
 }
 
 
@@ -118,7 +118,7 @@ inline boolean isPrintable(int c)
 // or an alphanumeric character.
 inline boolean isPunct(int c)
 {
-  return ( ispunct (c) == 0 ? false : true);
+        return ( ispunct (c) == 0 ? false : true);
 }
 
 
@@ -127,14 +127,14 @@ inline boolean isPunct(int c)
 // return ('\r'), horizontal tab ('\t'), and vertical tab ('\v').
 inline boolean isSpace(int c)
 {
-  return ( isspace (c) == 0 ? false : true);
+        return ( isspace (c) == 0 ? false : true);
 }
 
 
 // Checks for an uppercase letter.
 inline boolean isUpperCase(int c)
 {
-  return ( isupper (c) == 0 ? false : true);
+        return ( isupper (c) == 0 ? false : true);
 }
 
 
@@ -142,7 +142,7 @@ inline boolean isUpperCase(int c)
 // 8 9 a b c d e f A B C D E F.
 inline boolean isHexadecimalDigit(int c)
 {
-  return ( isxdigit (c) == 0 ? false : true);
+        return ( isxdigit (c) == 0 ? false : true);
 }
 
 
@@ -151,7 +151,7 @@ inline boolean isHexadecimalDigit(int c)
 inline int toAscii(int c)
 {
 /*  return toascii (c); */
-  return (c & 0x7f);
+        return (c & 0x7f);
 }
 
 
@@ -163,14 +163,14 @@ inline int toAscii(int c)
 // Converts the letter c to lower case, if possible.
 inline int toLowerCase(int c)
 {
-  return tolower (c);
+        return tolower (c);
 }
 
 
 // Converts the letter c to upper case, if possible.
 inline int toUpperCase(int c)
 {
-  return toupper (c);
+        return toupper (c);
 }
 
 #ifdef __cplusplus
