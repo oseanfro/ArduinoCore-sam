@@ -145,9 +145,6 @@ void UARTClass::flush( void )
 
 size_t UARTClass::write( const uint8_t uc_data )
 {
-        if(ID_USART0 == _dwId) {
-                SerialUSB.println(uc_data, 0);
-        }
         // Is the hardware currently busy?
         if (((_pUart->UART_SR & UART_SR_TXRDY) != UART_SR_TXRDY) |
             (_tx_buffer->_iTail != _tx_buffer->_iHead))
