@@ -200,9 +200,11 @@ void UARTClass::IrqHandler( void )
 void UARTClass::disableIrq( void ){
         // Mask off transmit interrupt so we don't get it anymore
         _pUart->UART_IDR = UART_IDR_TXRDY;
+        _pUart->UART_CR |= UART_CR_TXDIS;
 }
 
 void UARTClass::enableIrq( void ){
         // Make sure TX interrupt is enabled
         _pUart->UART_IER = UART_IER_TXRDY;
+        _pUart->UART_CR = UART_CR_RXEN | UART_CR_TXEN;
 }
